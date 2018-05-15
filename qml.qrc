@@ -1,5 +1,24 @@
 <RCC>
     <qresource prefix="/">
         <file>main.qml</file>
+        <file>steem/dsteem.js</file>
+        <file>CrewMember.qml</file>
+        <file>Ship.qml</file>
+        <file>Registration.qml</file>
+        <file>Missions.qml</file>
+        <file>Narrative.qml</file>
+        <file>Shop.qml</file>
+        <file>OSAuth.js</file>
+        <file>Style.qml</file>
+        <file>WFBorder.qml</file>
+        <file>WFButtonAction.qml</file>
+        <file>WFButtonMenu.qml</file>
+        <file>WFTextField.qml</file>
+        <file>Login.qml</file>
+        <file>main.js</file>
+        <file>graphics/img/logo1.png</file>
+        <file>graphics/img/logo2.png</file>
+        <file>graphics/img/OpenSeed.png</file>
+        <file>graphics/img/space1-portrait.png</file>
     </qresource>
 </RCC>
