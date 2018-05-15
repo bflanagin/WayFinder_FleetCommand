@@ -13,9 +13,12 @@ WFBorder {
      maxHeight:1000
      maxWidth:700
     property bool newaccount: false
-     property int uniquename:0
-     property int uniqueemail:0
+     property int uniqueemail: 0
+     property int uniquename: 0
+     property int uniqueaccount: 0
      property string uniqueid: '0'
+
+
 
    /* states: [
 
@@ -206,8 +209,10 @@ WFBorder {
             onClicked: if(newaccount == false) {message = "Checking Creditials";
                         OpenSeed.checkcreds("passphrase",name.text+":,:"+email.text+":,:"+password.text);
                            if(userid != " ") {
-                                thisWindow.state = "Hide"
-                                //gameselect.state = "Show"
+                                thisWindow.state = "Hide";
+                                //gameselect.state = "Show";
+                                acCheck.state = "Engage";
+
                            }
                         } else {
                            if(uniqueemail == 0 && uniquename == 0) {

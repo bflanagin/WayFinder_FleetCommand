@@ -39,32 +39,32 @@ function heartbeat() {
 
     http.onreadystatechange = function() {
 
-       if(http.status == 200) {
-        if (http.readyState == 4) {
+       if(http.status === 200) {
+        if (http.readyState === 4) {
             //console.log(http.responseText);
             //userid = http.responseText;
-            if(http.responseText == 100) {
+            if(http.responseText === 100) {
                 console.log("Incorrect DevID");
-            } else if(http.responseText == 101) {
+            } else if(http.responseText === 101) {
                 console.log("Incorrect AppID");
             } else {
 
                 heart = http.responseText;
-                updateinterval = 5500;
+                //updateinterval = 5500;
 
-               //console.log(heart);
+              // console.log(heart);
 
             }
 
         }
             } else {
                     heart = "Offline";
-                    updateinterval = 500 + updateinterval;
+                    //updateinterval = 500 + updateinterval;
            // console.log(heart);
 
 
         }
-       heartbeats.interval = updateinterval;
+      // heartbeat.interval = updateinterval;
     }
     http.open('POST', url.trim(), true);
    // console.log(http.statusText);
@@ -98,10 +98,12 @@ function checkcreds(field,info) {
                 //message = http.responseText;
                 //id = http.responseText;
                 if(field == "email") {
+                  //  console.log (http.responseText);
                     uniqueemail = http.responseText;
                 }
                 if(field == "username") {
                     uniquename = http.responseText;
+                   // console.log (http.responseText);
                    //message = http.responseText;
                 }
 
@@ -129,5 +131,40 @@ function checkcreds(field,info) {
     http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     http.send("devid=" + devId + "&appid=" + appId + "&type="+ field + "&info=" + info);
 
+
+}
+
+function account_type(userid) {
+
+    var http = new XMLHttpRequest();
+    //var url = "https://openseed.vagueentertainment.com:8675/corescripts/auth.php?devid=" + devId + "&appid=" + appId + "&username="+ name + "&email=" + email ;
+    var url = "https://openseed.vagueentertainment.com:8675/corescripts/authCHECK.php";
+   // console.log("sending "+name+" , "+passphrase);
+    http.onreadystatechange = function() {
+        if (http.readyState == 4) {
+            //console.log(http.responseText);
+            //userid = http.responseText;
+            if(http.responseText == 100) {
+               // uniqueemail = 100;
+                console.log("Incorrect DevID");
+            } else if(http.responseText == 101) {
+
+                //uniqueemail = 101;
+                console.log("Incorrect AppID");
+            } else {
+               // console.log(http.responseText);
+                if(http.responseText === "1") {
+                    connection_type = "Admin";
+                } else {
+                    connection_type = "User";
+                }
+            }
+
+        }
+    }
+    http.open('POST', url.trim(), true);
+    //http.send(null);
+    http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    http.send("devid=" + devId + "&appid=" + appId + "&type=admin&info=" + userid);
 
 }

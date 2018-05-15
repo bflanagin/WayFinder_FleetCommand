@@ -20,5 +20,7 @@
         <file>graphics/img/logo2.png</file>
         <file>graphics/img/OpenSeed.png</file>
         <file>graphics/img/space1-portrait.png</file>
+        <file>graphics/img/onlystars.png</file>
+        <file>GeneralInfo.qml</file>
     </qresource>
 </RCC>
